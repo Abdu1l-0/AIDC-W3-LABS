@@ -38,6 +38,16 @@ A tracking log of predictions and benchmark calculations across Week 3 lab sessi
 | **02** | vLLM runs the identical queue. Predict how far IT scales from concurrency 1 to 8: `______` x. *(Calculated below)* | `2.9x` |
 | **03** | Monday's `slot_efficiency` collapsed to about a third once the queue had mixed output lengths. Continuous batching does not pay that tax. So you should expect vLLM's scaling multiple to be `______` *(larger / smaller / the same as)* static batching's, and roughly `______` x larger. | `larger, 2` |
 
+---
+## Day 4 (w3d4): Quantise and lock the model
+
+| # | Question / Prompt | Prediction / Answer |
+| :---: | :--- | :--- |
+| **01** | AWQ stores weights at 4-bit, roughly a quarter of fp16's bytes. With the same `--gpu-memory-utilization 0.85`, `nvidia-smi memory.used` versus yesterday will read `______` *(much lower / about the same)*. Commit to one. | `about the same` |
+| **02** | Tokens/s served by vLLM with the AWQ kernels will be `______` *(faster / slower / about the same)* than fp16. Note: this is vLLM with fused AWQ kernels, not day-1 bitsandbytes; the speed story is different. | `faster` |
+| **03** | The FC smoke test fires 10 attempts across 3 prompts: 8 want a tool call, 2 must stay call-free. Your candidate will return valid parseable `tool_calls` on about `______` of the 8 that want one. | `7` |
+
+
 ### Baselines Reference & Day 3 Card 2 Calculation
 
 ```json
