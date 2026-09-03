@@ -39,6 +39,7 @@ A tracking log of predictions and benchmark calculations across Week 3 lab sessi
 | **03** | Monday's `slot_efficiency` collapsed to about a third once the queue had mixed output lengths. Continuous batching does not pay that tax. So you should expect vLLM's scaling multiple to be `______` *(larger / smaller / the same as)* static batching's, and roughly `______` x larger. | `larger, 2` |
 
 ---
+
 ## Day 4 (w3d4): Quantise and lock the model
 
 | # | Question / Prompt | Prediction / Answer |
@@ -47,6 +48,16 @@ A tracking log of predictions and benchmark calculations across Week 3 lab sessi
 | **02** | Tokens/s served by vLLM with the AWQ kernels will be `______` *(faster / slower / about the same)* than fp16. Note: this is vLLM with fused AWQ kernels, not day-1 bitsandbytes; the speed story is different. | `faster` |
 | **03** | The FC smoke test fires 10 attempts across 3 prompts: 8 want a tool call, 2 must stay call-free. Your candidate will return valid parseable `tool_calls` on about `______` of the 8 that want one. | `7` |
 
+---
+
+## Day 5 (w3d5): Benchmark Harness
+
+| # | Question / Prompt | Prediction / Answer |
+| :---: | :--- | :--- |
+| **01** | As concurrency rises, throughput (tokens/s) climbs, then flattens; p95 latency is flat at low concurrency, then climbs. Your knee (where p95 crosses target as throughput stops rising) will be at about concurrency `______`. | `16` |
+| **02** | Pick a target: p95 end-to-end latency of `______` seconds. This is your SLO for today. | `3` |
+
+---
 
 ### Baselines Reference & Day 3 Card 2 Calculation
 
